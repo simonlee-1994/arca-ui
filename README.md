@@ -1,6 +1,6 @@
 # Arca UI
 
-A multi-theme component library built in the style of shadcn/ui.
+A multi-theme component library built in the style of shadcn/ui: [arcaui.com](https://arcaui.com)
 
 Arca UI started as a deep dive into AI site-building agents. While the agent itself is on hiatus, the challenge pushed me to figure out how to achieve high-fidelity, consistent front-end architecture.
 
