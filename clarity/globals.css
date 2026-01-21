@@ -1,0 +1,489 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* === Color mapping to Tailwind === */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* === Extended colors === */
+  --color-background-subtle: var(--background-subtle);
+  --color-background-muted: var(--background-muted);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-border-hover: var(--border-hover);
+
+  /* === Border radius system === */
+  --radius-none: 0px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 9999px;
+
+  /* === Semantic radius aliases === */
+  --radius-surface: var(--radius-3xl);
+  --radius-surface-nested: var(--radius-2xl);
+  --radius-panel: var(--radius-lg);
+  --radius-control: var(--radius-full);
+  --radius-control-soft: var(--radius-2xl);
+
+  /* === Fonts === */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+
+  /* === Sidebar colors === */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* === Chart colors (using grayscale) === */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+}
+
+/* ================================
+   Light Mode (Default)
+   ================================ */
+:root {
+  /* === Grayscale palette === */
+  --clarity-paper: #fcfcfd;
+  --clarity-white: #ffffff;
+  --clarity-gray-50: #f8fafc;
+  --clarity-gray-100: #f1f5f9;
+  --clarity-gray-200: #e2e8f0;
+  --clarity-gray-300: #cbd5e1;
+  --clarity-gray-400: #94a3b8;
+  --clarity-gray-500: #64748b;
+  --clarity-gray-600: #475569;
+  --clarity-gray-700: #334155;
+  --clarity-gray-800: #1e293b;
+  --clarity-gray-900: #0f172a;
+
+  /* === Semantic colors === */
+  --background: var(--clarity-paper);
+  --background-subtle: var(--clarity-gray-50);
+  --background-muted: var(--clarity-gray-100);
+
+  --foreground: var(--clarity-gray-900);
+  --foreground-muted: var(--clarity-gray-500);
+  --foreground-subtle: var(--clarity-gray-400);
+
+  /* === Card === */
+  --card: var(--clarity-white);
+  --card-foreground: var(--clarity-gray-900);
+
+  /* === Popover === */
+  --popover: var(--clarity-white);
+  --popover-foreground: var(--clarity-gray-900);
+
+  /* === Primary action (CTA) === */
+  --primary: var(--clarity-gray-900);
+  --primary-hover: var(--clarity-gray-700);
+  --primary-foreground: var(--clarity-white);
+
+  /* === Secondary action === */
+  --secondary: var(--clarity-gray-100);
+  --secondary-hover: var(--clarity-gray-200);
+  --secondary-foreground: var(--clarity-gray-900);
+
+  /* === Muted === */
+  --muted: var(--clarity-gray-100);
+  --muted-foreground: var(--clarity-gray-500);
+
+  /* === Accent (same as secondary) === */
+  --accent: var(--clarity-gray-100);
+  --accent-foreground: var(--clarity-gray-900);
+
+  /* === Destructive/Error === */
+  --destructive: #dc2626;
+  --destructive-foreground: var(--clarity-white);
+
+  /* === Border === */
+  --border: var(--clarity-gray-200);
+  --border-hover: var(--clarity-gray-300);
+  --border-focus: var(--clarity-gray-900);
+
+  /* === Input === */
+  --input: var(--clarity-gray-200);
+  --input-focus: var(--clarity-gray-900);
+
+  /* === Focus ring === */
+  --ring: var(--clarity-gray-900);
+  --ring-offset: var(--clarity-paper);
+
+  /* === Sidebar === */
+  --sidebar: var(--clarity-gray-50);
+  --sidebar-foreground: var(--clarity-gray-900);
+  --sidebar-primary: var(--clarity-gray-900);
+  --sidebar-primary-foreground: var(--clarity-white);
+  --sidebar-accent: var(--clarity-gray-100);
+  --sidebar-accent-foreground: var(--clarity-gray-900);
+  --sidebar-border: var(--clarity-gray-200);
+  --sidebar-ring: var(--clarity-gray-900);
+
+  /* === Chart (using grayscale) === */
+  --chart-1: var(--clarity-gray-900);
+  --chart-2: var(--clarity-gray-700);
+  --chart-3: var(--clarity-gray-500);
+  --chart-4: var(--clarity-gray-300);
+  --chart-5: var(--clarity-gray-100);
+
+  /* === Shadows === */
+  --shadow-sm: 0 1px 0 rgba(15, 23, 42, 0.02),
+    0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 1px 0 rgba(15, 23, 42, 0.02),
+    0 10px 24px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 1px 0 rgba(15, 23, 42, 0.02),
+    0 18px 48px rgba(15, 23, 42, 0.12);
+
+  /* === Transitions === */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
+}
+
+/* ================================
+   Dark Mode
+   ================================ */
+.dark {
+  /* === Semantic colors (inverted) === */
+  --background: var(--clarity-gray-900);
+  --background-subtle: var(--clarity-gray-800);
+  --background-muted: var(--clarity-gray-700);
+
+  --foreground: var(--clarity-gray-50);
+  --foreground-muted: var(--clarity-gray-400);
+  --foreground-subtle: var(--clarity-gray-500);
+
+  /* === Card === */
+  --card: var(--clarity-gray-800);
+  --card-foreground: var(--clarity-gray-50);
+
+  /* === Popover === */
+  --popover: var(--clarity-gray-800);
+  --popover-foreground: var(--clarity-gray-50);
+
+  /* === Primary action (inverted to light) === */
+  --primary: var(--clarity-gray-50);
+  --primary-hover: var(--clarity-gray-200);
+  --primary-foreground: var(--clarity-gray-900);
+
+  /* === Secondary action === */
+  --secondary: var(--clarity-gray-700);
+  --secondary-hover: var(--clarity-gray-600);
+  --secondary-foreground: var(--clarity-gray-50);
+
+  /* === Muted === */
+  --muted: var(--clarity-gray-700);
+  --muted-foreground: var(--clarity-gray-400);
+
+  /* === Accent === */
+  --accent: var(--clarity-gray-700);
+  --accent-foreground: var(--clarity-gray-50);
+
+  /* === Destructive/Error === */
+  --destructive: #ef4444;
+  --destructive-foreground: var(--clarity-white);
+
+  /* === Border === */
+  --border: var(--clarity-gray-700);
+  --border-hover: var(--clarity-gray-600);
+  --border-focus: var(--clarity-gray-50);
+
+  /* === Input === */
+  --input: var(--clarity-gray-700);
+  --input-focus: var(--clarity-gray-50);
+
+  /* === Focus ring === */
+  --ring: var(--clarity-gray-50);
+  --ring-offset: var(--clarity-gray-900);
+
+  /* === Sidebar === */
+  --sidebar: var(--clarity-gray-800);
+  --sidebar-foreground: var(--clarity-gray-50);
+  --sidebar-primary: var(--clarity-gray-50);
+  --sidebar-primary-foreground: var(--clarity-gray-900);
+  --sidebar-accent: var(--clarity-gray-700);
+  --sidebar-accent-foreground: var(--clarity-gray-50);
+  --sidebar-border: var(--clarity-gray-700);
+  --sidebar-ring: var(--clarity-gray-50);
+
+  /* === Chart (dark mode) === */
+  --chart-1: var(--clarity-gray-50);
+  --chart-2: var(--clarity-gray-200);
+  --chart-3: var(--clarity-gray-400);
+  --chart-4: var(--clarity-gray-600);
+  --chart-5: var(--clarity-gray-800);
+
+  /* === Shadows (darker in dark mode) === */
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 1px 0 rgba(0, 0, 0, 0.12),
+    0 14px 32px rgba(0, 0, 0, 0.44);
+  --shadow-lg: 0 1px 0 rgba(0, 0, 0, 0.12),
+    0 22px 56px rgba(0, 0, 0, 0.58);
+}
+
+/* ================================
+   Base Styles
+   ================================ */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    text-rendering: geometricPrecision;
+  }
+
+  /* === Focus visible styles === */
+  :focus-visible {
+    @apply outline-none ring-[3px] ring-ring/20 ring-offset-2 ring-offset-background;
+  }
+
+  /* === Text selection styles === */
+  ::selection {
+    @apply bg-primary/10 text-foreground;
+  }
+}
+
+/* ================================
+   Typography Base
+   ================================ */
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-3xl;
+  }
+
+  h3 {
+    @apply text-2xl;
+  }
+
+  h4 {
+    @apply text-xl;
+  }
+
+  h5 {
+    @apply text-lg;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+}
+
+/* ================================
+   Radius Primitives
+   ================================ */
+@layer components {
+  .radius-control {
+    border-radius: var(--radius-control);
+  }
+
+  .radius-control-soft {
+    border-radius: var(--radius-control-soft);
+  }
+
+  .radius-surface {
+    border-radius: var(--radius-surface);
+  }
+
+  .radius-surface-nested {
+    border-radius: var(--radius-surface-nested);
+  }
+
+  .radius-panel {
+    border-radius: var(--radius-panel);
+  }
+
+  .radius-option {
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* ================================
+   Utility Classes
+   ================================ */
+@layer utilities {
+  /* === Text color utilities === */
+  .text-muted {
+    color: var(--foreground-muted);
+  }
+
+  .text-subtle {
+    color: var(--foreground-subtle);
+  }
+
+  /* === Background utilities === */
+  .bg-subtle {
+    background-color: var(--background-subtle);
+  }
+
+  .bg-muted {
+    background-color: var(--background-muted);
+  }
+
+  /* === Border utilities === */
+  .border-hover {
+    border-color: var(--border-hover);
+  }
+
+  /* === Transition utilities === */
+  .transition-fast {
+    transition: all var(--transition-fast);
+  }
+
+  .transition-base {
+    transition: all var(--transition-base);
+  }
+
+  .transition-slow {
+    transition: all var(--transition-slow);
+  }
+
+  /* === Shadow utilities === */
+  .shadow-clarity-sm {
+    box-shadow: var(--shadow-sm);
+  }
+
+  .shadow-clarity-md {
+    box-shadow: var(--shadow-md);
+  }
+
+  .shadow-clarity-lg {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* ================================
+   Collapsible Animation
+   ================================ */
+@theme inline {
+  --animate-collapsible-down: collapsible-down 0.2s ease-out;
+  --animate-collapsible-up: collapsible-up 0.2s ease-out;
+}
+
+@keyframes collapsible-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes collapsible-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+/* ================================
+   Scrollbar Styling
+   ================================ */
+@layer base {
+  /* Webkit browsers */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--clarity-gray-300);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--clarity-gray-400);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--clarity-gray-600);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--clarity-gray-500);
+  }
+}
+
+/* ================================
+   Spinner Animation
+   ================================ */
+@keyframes spinner-bars {
+  0%,
+  100% {
+    transform: scaleY(0.4);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

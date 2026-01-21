@@ -1,0 +1,365 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-manrope);
+    --font-heading: var(--font-space-grotesk);
+    --font-mono: var(--font-jetbrains-mono);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-destructive-shadow: var(--destructive-shadow);
+    --color-primary-shadow: var(--primary-shadow);
+    --color-secondary-shadow: var(--secondary-shadow);
+    --color-accent-shadow: var(--accent-shadow);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-pill: 9999px;
+}
+
+:root {
+    /* Base radius for capsule containers */
+    --radius: 1.25rem;
+
+    /* Canvas Base: Snow White */
+    --background: #FFFFFF;
+    --foreground: #121212;
+
+    /* Card styling with large radius */
+    --card: #FFFFFF;
+    --card-foreground: #121212;
+
+    /* Popover */
+    --popover: #FFFFFF;
+    --popover-foreground: #121212;
+
+    /* Primary: Midnight Black */
+    --primary: #121212;
+    --primary-foreground: #FFFFFF;
+
+    /* Secondary: Vapor Gray */
+    --secondary: #F3F4F6;
+    --secondary-foreground: #121212;
+
+    /* Muted */
+    --muted: #F3F4F6;
+    --muted-foreground: #6B7280;
+
+    /* Accent: Electric Violet */
+    --accent: #8B5CF6;
+    --accent-foreground: #FFFFFF;
+
+    /* Destructive */
+    --destructive: #EF4444;
+    --destructive-shadow: #B91C1C;
+
+    /* Shadow variants for hard shadow effect */
+    --primary-shadow: #6D28D9;
+    --secondary-shadow: #121212;
+    --accent-shadow: #6D28D9;
+
+    /* Borders: Solid Ink */
+    --border: #121212;
+    --input: #121212;
+    --ring: #8B5CF6;
+
+    /* Orbit hover (subtle, keeps static state flat) */
+    --orbit-hover-ink: rgba(18, 18, 18, 0.5);
+    --orbit-hover-ink-strong: rgba(18, 18, 18, 0.72);
+    --orbit-hover-accent: rgba(139, 92, 246, 0.45);
+    --orbit-hover-accent-strong: rgba(139, 92, 246, 0.72);
+
+    /* Chart colors with vibrant tones */
+    --chart-1: #8B5CF6;
+    --chart-2: #06B6D4;
+    --chart-3: #10B981;
+    --chart-4: #F59E0B;
+    --chart-5: #EF4444;
+
+    /* Sidebar */
+    --sidebar: #FFFFFF;
+    --sidebar-foreground: #121212;
+    --sidebar-primary: #121212;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #F3F4F6;
+    --sidebar-accent-foreground: #121212;
+    --sidebar-border: #121212;
+    --sidebar-ring: #8B5CF6;
+}
+
+.dark {
+    /* Dark mode: Soft dark with clear hierarchy */
+    /* Using Zinc color palette for better layering */
+    --background: #18181B;
+    --foreground: #FAFAFA;
+
+    --card: #27272A;
+    --card-foreground: #FAFAFA;
+
+    --popover: #27272A;
+    --popover-foreground: #FAFAFA;
+
+    --primary: #FAFAFA;
+    --primary-foreground: #18181B;
+
+    --secondary: #3F3F46;
+    --secondary-foreground: #FAFAFA;
+
+    --muted: #27272A;
+    --muted-foreground: #A1A1AA;
+
+    --accent: #A78BFA;
+    --accent-foreground: #18181B;
+
+    --destructive: #F87171;
+    --destructive-shadow: #DC2626;
+
+    /* Shadow variants for hard shadow effect (dark mode) */
+    /* Purple shadow for primary (white) buttons, black for others */
+    --primary-shadow: #7C3AED;
+    --secondary-shadow: #000000;
+    --accent-shadow: #6D28D9;
+
+    /* Softer white border - less harsh than pure white */
+    --border: #D4D4D8;
+    --input: #D4D4D8;
+    --ring: #A78BFA;
+
+    /* Orbit hover (dark mode) */
+    --orbit-hover-ink: rgba(212, 212, 216, 0.45);
+    --orbit-hover-ink-strong: rgba(212, 212, 216, 0.72);
+    --orbit-hover-accent: rgba(167, 139, 250, 0.55);
+    --orbit-hover-accent-strong: rgba(167, 139, 250, 0.8);
+
+    --chart-1: #A78BFA;
+    --chart-2: #22D3EE;
+    --chart-3: #34D399;
+    --chart-4: #FBBF24;
+    --chart-5: #F87171;
+
+    --sidebar: #27272A;
+    --sidebar-foreground: #FAFAFA;
+    --sidebar-primary: #FAFAFA;
+    --sidebar-primary-foreground: #18181B;
+    --sidebar-accent: #3F3F46;
+    --sidebar-accent-foreground: #FAFAFA;
+    --sidebar-border: #D4D4D8;
+    --sidebar-ring: #A78BFA;
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground font-sans;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-heading), sans-serif;
+    }
+}
+
+/* Orbit Capsule utility classes */
+@layer utilities {
+    .capsule {
+        @apply rounded-full;
+    }
+
+    .capsule-container {
+        border-radius: 1.5rem;
+    }
+
+    .capsule-container-lg {
+        border-radius: 2rem;
+    }
+
+    .ink-border {
+        @apply border-2 border-foreground;
+    }
+
+    .ink-border-thin {
+        @apply border border-foreground;
+    }
+
+    .orbit-line {
+        border: 1px solid var(--border);
+    }
+
+    .orbit-hover-offset-sm {
+        outline: 1px var(--orbit-hover-outline-style-sm, dotted) transparent;
+        outline-offset: 0px;
+        transition: outline-offset 160ms ease, outline-color 160ms ease;
+    }
+
+    .orbit-hover-offset-sm:hover {
+        outline-color: var(--orbit-hover-outline-color-sm, var(--orbit-hover-ink, var(--border)));
+        outline-offset: var(--orbit-hover-outline-offset-sm, 3px);
+    }
+
+    .orbit-hover-offset {
+        outline: 1px var(--orbit-hover-outline-style, dashed) transparent;
+        outline-offset: 0px;
+        transition: outline-offset 160ms ease, outline-color 160ms ease;
+        position: relative;
+        isolation: isolate;
+        /* Default stitch pattern variables */
+        --orbit-hover-deco-bg: repeating-linear-gradient(
+            90deg,
+            transparent 0 6px,
+            var(--orbit-hover-accent-strong) 6px 7px
+        );
+        --orbit-hover-deco-opacity: 0.28;
+    }
+
+    .orbit-hover-offset:hover {
+        outline-color: var(--orbit-hover-outline-color, var(--orbit-hover-ink-strong, var(--border)));
+        outline-offset: var(--orbit-hover-outline-offset, 7px);
+        z-index: 2;
+    }
+
+    .orbit-hover-offset::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        pointer-events: none;
+        z-index: -1;
+        opacity: 0;
+        padding: 0px;
+        background-image: var(--orbit-hover-deco-bg);
+        background-size: var(--orbit-hover-deco-size, auto);
+        background-repeat: var(--orbit-hover-deco-repeat, repeat);
+        background-position: var(--orbit-hover-deco-position, center);
+        -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        transition: opacity 160ms ease, inset 160ms ease, padding 160ms ease;
+    }
+
+    .orbit-hover-offset:hover::after {
+        opacity: var(--orbit-hover-deco-opacity);
+        inset: calc(-1 * var(--orbit-hover-deco-offset, var(--orbit-hover-outline-offset, 7px)));
+        padding: var(--orbit-hover-deco-thickness, var(--orbit-hover-outline-offset, 7px));
+    }
+
+    /* Hover style variants (set on an ancestor) */
+    .orbit-hover-variant-stitch {
+        --orbit-hover-outline-style: dashed;
+        --orbit-hover-outline-color: var(--orbit-hover-ink-strong);
+        --orbit-hover-outline-offset: 7px;
+        --orbit-hover-outline-style-sm: dotted;
+        --orbit-hover-outline-color-sm: var(--orbit-hover-ink);
+        --orbit-hover-outline-offset-sm: 3px;
+        --orbit-hover-deco-opacity: 0.28;
+        --orbit-hover-deco-offset: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-thickness: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-bg: repeating-linear-gradient(
+            90deg,
+            transparent 0 6px,
+            var(--orbit-hover-accent-strong) 6px 7px
+        );
+    }
+
+    .orbit-hover-variant-blueprint {
+        --orbit-hover-outline-style: solid;
+        --orbit-hover-outline-color: var(--orbit-hover-accent-strong);
+        --orbit-hover-outline-offset: 8px;
+        --orbit-hover-outline-style-sm: solid;
+        --orbit-hover-outline-color-sm: var(--orbit-hover-ink-strong);
+        --orbit-hover-outline-offset-sm: 3px;
+        --orbit-hover-deco-opacity: 0.22;
+        --orbit-hover-deco-offset: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-thickness: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-bg:
+            radial-gradient(circle at 1px 1px, var(--orbit-hover-ink-strong) 1px, transparent 1.3px),
+            repeating-linear-gradient(to right, transparent 0 11px, var(--orbit-hover-ink) 11px 12px),
+            repeating-linear-gradient(to bottom, transparent 0 11px, var(--orbit-hover-ink) 11px 12px);
+        --orbit-hover-deco-size: 6px 6px, auto, auto;
+        --orbit-hover-deco-repeat: repeat, repeat, repeat;
+    }
+
+    .orbit-hover-variant-radar {
+        --orbit-hover-outline-style: dotted;
+        --orbit-hover-outline-color: var(--orbit-hover-accent-strong);
+        --orbit-hover-outline-offset: 8px;
+        --orbit-hover-outline-style-sm: dotted;
+        --orbit-hover-outline-color-sm: var(--orbit-hover-ink-strong);
+        --orbit-hover-outline-offset-sm: 3px;
+        --orbit-hover-deco-opacity: 0.26;
+        --orbit-hover-deco-offset: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-thickness: var(--orbit-hover-outline-offset);
+        --orbit-hover-deco-bg:
+            repeating-conic-gradient(
+                from 90deg,
+                var(--orbit-hover-accent-strong) 0 2deg,
+                transparent 2deg 14deg
+            ),
+            radial-gradient(circle at 50% 50%, transparent 58%, var(--orbit-hover-ink) 62%, transparent 66%);
+        --orbit-hover-deco-repeat: no-repeat, no-repeat;
+    }
+
+    .hard-shadow {
+        box-shadow: 4px 4px 0px var(--foreground);
+    }
+
+    .hard-shadow-sm {
+        box-shadow: 2px 2px 0px var(--foreground);
+    }
+
+    .hard-shadow-accent {
+        box-shadow: 4px 4px 0px var(--accent);
+    }
+}
+
+/* Skeleton animation keyframes */
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@keyframes wave {
+    0% {
+        background-position: 300% 0;
+    }
+    100% {
+        background-position: -300% 0;
+    }
+}

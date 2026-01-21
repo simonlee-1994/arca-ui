@@ -1,0 +1,330 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-manrope);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-success: var(--success);
+    --color-success-foreground: var(--success-foreground);
+    --color-warning: var(--warning);
+    --color-warning-foreground: var(--warning-foreground);
+    --color-info: var(--info);
+    --color-info-foreground: var(--info-foreground);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+    --radius-3xl: calc(var(--radius) + 14px);
+}
+
+:root {
+    /* Aura theme - natural, organic, serene */
+    /* Large border radius design, reflecting pebble-like roundness */
+    --radius: 1rem;
+
+    /* Warm white background - restrained contrast and layers */
+    --background: oklch(0.975 0.006 85);
+    --foreground: oklch(0.32 0.02 250);
+
+    /* Card uses slightly different warm white */
+    --card: oklch(0.992 0.004 85);
+    --card-foreground: var(--foreground);
+
+    /* Popover */
+    --popover: oklch(0.992 0.004 85);
+    --popover-foreground: var(--foreground);
+
+    /* Primary color - sage green, natural and organic */
+    --primary: oklch(0.56 0.10 145);
+    --primary-foreground: oklch(0.99 0.003 85);
+
+    /* Secondary color - soft warm gray */
+    --secondary: oklch(0.945 0.008 85);
+    --secondary-foreground: var(--foreground);
+
+    /* Muted color */
+    --muted: oklch(0.945 0.008 85);
+    --muted-foreground: oklch(0.50 0.015 250);
+
+    /* Accent color - soft green tone */
+    --accent: oklch(0.93 0.03 145);
+    --accent-foreground: var(--foreground);
+
+    /* Destructive color - soft coral */
+    --destructive: oklch(0.65 0.18 25);
+    --destructive-foreground: oklch(0.99 0.003 85);
+
+    /* Success color - fresh green */
+    --success: oklch(0.65 0.15 145);
+    --success-foreground: oklch(0.99 0.003 85);
+
+    /* Warning color - warm amber */
+    --warning: oklch(0.80 0.12 80);
+    --warning-foreground: oklch(0.30 0.05 80);
+
+    /* Info color - soft blue */
+    --info: oklch(0.75 0.10 230);
+    --info-foreground: oklch(0.25 0.05 230);
+
+    /* Border - soft beige tone */
+    --border: oklch(0.88 0.01 85);
+    --input: oklch(0.88 0.01 85);
+    --ring: oklch(0.56 0.10 145);
+
+    /* Chart colors - natural palette */
+    --chart-1: oklch(0.58 0.08 145);
+    --chart-2: oklch(0.65 0.12 180);
+    --chart-3: oklch(0.72 0.08 85);
+    --chart-4: oklch(0.60 0.10 220);
+    --chart-5: oklch(0.68 0.14 350);
+
+    /* Sidebar */
+    --sidebar: oklch(0.97 0.006 85);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: oklch(0.58 0.08 145);
+    --sidebar-primary-foreground: oklch(0.99 0.003 85);
+    --sidebar-accent: oklch(0.92 0.03 145);
+    --sidebar-accent-foreground: oklch(0.35 0.02 250);
+    --sidebar-border: oklch(0.91 0.01 85);
+    --sidebar-ring: oklch(0.56 0.10 145);
+
+    /* Aura canvas and texture */
+    --aura-grid-minor: color-mix(in oklab, var(--foreground) 6%, transparent);
+    --aura-grid-major: color-mix(in oklab, var(--foreground) 10%, transparent);
+    /* Aura promotional canvas texture (aura1 grid background formula) */
+    --aura-grid: color-mix(in oklab, var(--foreground) 7%, transparent);
+    --aura-grid-strong: color-mix(in oklab, var(--foreground) 10%, transparent);
+    --aura-glow-1: color-mix(in oklab, var(--primary) 14%, transparent);
+    --aura-glow-2: color-mix(in oklab, var(--accent) 18%, transparent);
+    --aura-glow-3: color-mix(in oklab, var(--warning) 12%, transparent);
+    --aura-shadow-card: 0 1px 0 0 color-mix(in oklab, var(--foreground) 7%, transparent),
+        0 22px 48px -36px color-mix(in oklab, var(--foreground) 40%, transparent);
+    --aura-shadow-card-hover: 0 1px 0 0 color-mix(in oklab, var(--foreground) 8%, transparent),
+        0 30px 72px -44px color-mix(in oklab, var(--foreground) 45%, transparent);
+    --aura-shadow-float: 0 2px 4px -1px color-mix(in oklab, var(--foreground) 8%, transparent),
+        0 12px 24px -4px color-mix(in oklab, var(--foreground) 12%, transparent),
+        0 32px 64px -12px color-mix(in oklab, var(--foreground) 16%, transparent);
+}
+
+.dark {
+    /* Aura dark theme - maintaining warmth and organic feel */
+    --background: oklch(0.18 0.015 250);
+    --foreground: oklch(0.92 0.008 85);
+
+    --card: oklch(0.22 0.015 250);
+    --card-foreground: oklch(0.92 0.008 85);
+
+    --popover: oklch(0.22 0.015 250);
+    --popover-foreground: oklch(0.92 0.008 85);
+
+    --primary: oklch(0.65 0.10 145);
+    --primary-foreground: oklch(0.18 0.015 250);
+
+    --secondary: oklch(0.28 0.015 250);
+    --secondary-foreground: oklch(0.92 0.008 85);
+
+    --muted: oklch(0.28 0.015 250);
+    --muted-foreground: oklch(0.65 0.01 85);
+
+    --accent: oklch(0.32 0.04 145);
+    --accent-foreground: oklch(0.92 0.008 85);
+
+    --destructive: oklch(0.60 0.20 25);
+    --destructive-foreground: oklch(0.99 0.003 85);
+
+    --success: oklch(0.60 0.15 145);
+    --success-foreground: oklch(0.18 0.015 250);
+
+    --warning: oklch(0.75 0.14 80);
+    --warning-foreground: oklch(0.20 0.03 80);
+
+    --info: oklch(0.70 0.12 230);
+    --info-foreground: oklch(0.18 0.03 230);
+
+    --border: oklch(0.30 0.01 250);
+    --input: oklch(0.30 0.01 250);
+    --ring: oklch(0.65 0.10 145);
+
+    --chart-1: oklch(0.65 0.10 145);
+    --chart-2: oklch(0.60 0.14 180);
+    --chart-3: oklch(0.70 0.10 85);
+    --chart-4: oklch(0.55 0.12 220);
+    --chart-5: oklch(0.62 0.16 350);
+
+    --sidebar: oklch(0.20 0.015 250);
+    --sidebar-foreground: oklch(0.92 0.008 85);
+    --sidebar-primary: oklch(0.65 0.10 145);
+    --sidebar-primary-foreground: oklch(0.18 0.015 250);
+    --sidebar-accent: oklch(0.32 0.04 145);
+    --sidebar-accent-foreground: oklch(0.92 0.008 85);
+    --sidebar-border: oklch(0.30 0.01 250);
+    --sidebar-ring: oklch(0.65 0.10 145);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+
+    input[type="number"]::-webkit-outer-spin-button,
+    input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        appearance: textfield;
+        -moz-appearance: textfield;
+    }
+}
+
+@layer utilities {
+    .aura-canvas {
+        background-color: var(--background);
+        background-image:
+            radial-gradient(1100px circle at 18% 10%, var(--aura-glow-2) 0%, transparent 58%),
+            radial-gradient(1200px circle at 86% 18%, var(--aura-glow-1) 0%, transparent 55%),
+            radial-gradient(900px circle at 50% 110%, var(--aura-glow-3) 0%, transparent 55%),
+            linear-gradient(to right, var(--aura-grid-strong) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--aura-grid-strong) 1px, transparent 1px),
+            linear-gradient(to right, var(--aura-grid) 1px, transparent 1px),
+            linear-gradient(to bottom, var(--aura-grid) 1px, transparent 1px);
+        background-size:
+            auto,
+            auto,
+            auto,
+            120px 120px,
+            120px 120px,
+            24px 24px,
+            24px 24px;
+        background-position:
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0,
+            0 0;
+    }
+
+    /* Aura alternative gradient card backgrounds */
+    .aura-surface-gradient-1 {
+        background-color: var(--card);
+        background-image:
+            radial-gradient(120% 90% at 12% 18%, color-mix(in oklab, var(--primary) 28%, transparent) 0%, transparent 60%),
+            radial-gradient(100% 90% at 88% 18%, color-mix(in oklab, var(--accent) 46%, transparent) 0%, transparent 62%),
+            linear-gradient(135deg, color-mix(in oklab, var(--foreground) 7%, transparent) 0%, transparent 65%);
+    }
+
+    .aura-surface-gradient-2 {
+        background-color: var(--card);
+        background-image:
+            radial-gradient(120% 90% at 14% 20%, color-mix(in oklab, var(--warning) 26%, transparent) 0%, transparent 60%),
+            radial-gradient(90% 80% at 86% 22%, color-mix(in oklab, var(--primary) 28%, transparent) 0%, transparent 64%),
+            linear-gradient(135deg, color-mix(in oklab, var(--foreground) 7%, transparent) 0%, transparent 65%);
+    }
+
+    .aura-surface-gradient-3 {
+        background-color: var(--card);
+        background-image:
+            radial-gradient(120% 90% at 12% 22%, color-mix(in oklab, var(--accent) 34%, transparent) 0%, transparent 60%),
+            radial-gradient(95% 80% at 88% 18%, color-mix(in oklab, var(--info) 26%, transparent) 0%, transparent 64%),
+            linear-gradient(135deg, color-mix(in oklab, var(--foreground) 7%, transparent) 0%, transparent 65%);
+    }
+
+    .aura-surface-gradient-4 {
+        background-color: var(--card);
+        background-image:
+            radial-gradient(120% 90% at 10% 20%, color-mix(in oklab, var(--primary) 22%, transparent) 0%, transparent 60%),
+            radial-gradient(110% 80% at 92% 16%, color-mix(in oklab, var(--warning) 22%, transparent) 0%, transparent 64%),
+            radial-gradient(120% 90% at 50% 110%, color-mix(in oklab, var(--accent) 20%, transparent) 0%, transparent 58%),
+            linear-gradient(180deg, color-mix(in oklab, var(--foreground) 6%, transparent) 0%, transparent 70%);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.animate-shimmer {
+    animation: shimmer 2.5s ease-in-out infinite;
+}
+
+@keyframes progress-stripes {
+    0% {
+        background-position: 1rem 0;
+    }
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/* Sonner: allow content-driven toast width while keeping correct alignment per position */
+[data-sonner-toaster][data-x-position="left"] [data-sonner-toast] {
+    left: 0;
+    right: auto;
+}
+
+[data-sonner-toaster][data-x-position="right"] [data-sonner-toast] {
+    right: 0;
+    left: auto;
+}
+
+[data-sonner-toaster][data-x-position="center"] [data-sonner-toast] {
+    left: 50%;
+    right: auto;
+    translate: -50% 0;
+}
+
+/* Hide scrollbar but keep scroll functionality */
+.scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}

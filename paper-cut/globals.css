@@ -1,0 +1,321 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --font-sans: var(--font-plus-jakarta-sans);
+    --font-body: var(--font-figtree);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-paper-edge: var(--paper-edge);
+    --color-paper-shadow: var(--paper-shadow);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+
+    /* ========== Paper Cut: Shadow Tokens ========== */
+    /* These can be used as: shadow-paper-sm, shadow-paper-md, etc. */
+    --shadow-paper-none: none;
+    --shadow-paper-sm:
+        var(--paper-offset-sm) var(--paper-offset-sm) 0px 0px var(--paper-shadow),
+        0 12px 20px -16px var(--paper-shadow-ambient);
+    --shadow-paper-md:
+        var(--paper-offset-md) var(--paper-offset-md) 0px 0px var(--paper-shadow),
+        0 22px 34px -28px var(--paper-shadow-ambient);
+    --shadow-paper-lg:
+        var(--paper-offset-lg) var(--paper-offset-lg) 0px 0px var(--paper-shadow),
+        0 32px 46px -36px var(--paper-shadow-ambient);
+    --shadow-paper-pressed:
+        2px 2px 0px 0px var(--paper-shadow),
+        0 8px 12px -10px var(--paper-shadow-ambient);
+
+    /* ========== Paper Cut: Animation Tokens ========== */
+    --ease-paper: var(--paper-ease);
+    --duration-paper: var(--paper-duration);
+}
+
+:root {
+    /* Paper Cut Theme - "Chromatic Projection" */
+    /* A warm paper base with a colored, hard-light projection. */
+    --radius: 1.625rem;
+
+    /* Canvas background - warm studio white */
+    --background: #FCFBF7;
+    /* Ink - graphite */
+    --foreground: #1F2328;
+
+    /* Paper surface */
+    --card: #FFFEFC;
+    --card-foreground: #1F2328;
+
+    /* Popover - same paper surface */
+    --popover: #FFFEFC;
+    --popover-foreground: #1F2328;
+
+    /* Primary - ink */
+    --primary: #1F2328;
+    --primary-foreground: #FFFEFC;
+
+    /* Secondary / muted - warm wash */
+    --secondary: #F4F1EA;
+    --secondary-foreground: #1F2328;
+
+    --muted: #F4F1EA;
+    --muted-foreground: #6E6B66;
+
+    /* Accent - soft chroma tint (used for hover/selected surfaces) */
+    --accent: #FFF1E6;
+    --accent-foreground: #1F2328;
+
+    /* Destructive */
+    --destructive: #E5484D;
+
+    /* Strokes */
+    --border: #E5DCCB;
+    --input: #E5DCCB;
+    --ring: #FF9C66;
+
+    /* ========== Paper Cut: Colors ========== */
+    --paper-edge: #D7CDBA;
+    /* Hard-light projection (no gray) */
+    --paper-shadow: rgba(255, 156, 102, 0.55);
+    /* Button-only shadow tints (avoid orange shadow on dark/red fills) */
+    --paper-shadow-primary: rgba(31, 35, 40, 0.28);
+    --paper-shadow-destructive: rgba(229, 72, 77, 0.32);
+    /* Ambient depth */
+    --paper-shadow-ambient: rgba(31, 35, 40, 0.12);
+
+    /* ========== Paper Cut: Offset Distances ========== */
+    /* These define the hard shadow offset at each elevation level */
+    --paper-offset-sm: 3px;   /* Level 2 - Section/Container */
+    --paper-offset-md: 6px;   /* Level 3 - Default */
+    --paper-offset-lg: 10px;  /* Level 3 - Hover/Elevated */
+
+    /* ========== Paper Cut: Lift Distances ========== */
+    /* How much elements translate on hover (opposite of shadow direction) */
+    --paper-lift-sm: 1px;
+    --paper-lift-md: 2px;
+    --paper-lift-lg: 3px;
+
+    /* ========== Paper Cut: Animation ========== */
+    --paper-ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+    --paper-duration: 200ms;
+
+    /* Chart colors - warm chroma accents */
+    --chart-1: #FF9C66;
+    --chart-2: #B79CFF;
+    --chart-3: #22C55E;
+    --chart-4: #06B6D4;
+    --chart-5: #F59E0B;
+
+    /* Sidebar */
+    --sidebar: var(--card);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--secondary);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+}
+
+.dark {
+    /* Dark mode - inverted Paper Cut */
+    --background: #121314;
+    --foreground: #F2F3F5;
+
+    --card: #1B1D20;
+    --card-foreground: #F2F3F5;
+
+    --popover: #1B1D20;
+    --popover-foreground: #F2F3F5;
+
+    --primary: #F2F3F5;
+    --primary-foreground: #121314;
+
+    --secondary: #23262B;
+    --secondary-foreground: #F2F3F5;
+
+    --muted: #23262B;
+    --muted-foreground: #A6A2A0;
+
+    --accent: #2A2420;
+    --accent-foreground: #F2F3F5;
+
+    --destructive: #EF5350;
+
+    --border: #2F333A;
+    --input: #2F333A;
+    --ring: #FF9C66;
+
+    /* ========== Paper Cut: Colors (Dark) ========== */
+    --paper-edge: #363B44;
+    --paper-shadow: rgba(255, 156, 102, 0.45);
+    --paper-shadow-primary: rgba(255, 156, 102, 0.45);
+    --paper-shadow-destructive: rgba(255, 156, 102, 0.45);
+    --paper-shadow-ambient: rgba(0, 0, 0, 0.35);
+
+    /* Offset/Lift/Animation tokens are inherited from :root (size-based, no need to override) */
+
+    --chart-1: #FF9C66;
+    --chart-2: #B79CFF;
+    --chart-3: #22C55E;
+    --chart-4: #06B6D4;
+    --chart-5: #F59E0B;
+
+    --sidebar: var(--card);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--secondary);
+    --sidebar-accent-foreground: var(--foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+}
+
+@layer base {
+    * {
+        @apply border-border outline-ring/50;
+    }
+
+    body {
+        @apply bg-background text-foreground font-body;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply font-sans font-bold;
+    }
+}
+
+/* Paper Cut specific utility classes */
+@layer utilities {
+    /*
+     * DEPRECATED: These classes will be removed in future versions.
+     * Use the token-based approach instead:
+     * - shadow-paper-sm / shadow-paper-md / shadow-paper-lg
+     * - transition-[var(--paper-duration)] ease-[var(--paper-ease)]
+     */
+
+    /* Paper shadow effect - solid offset shadow (DEPRECATED) */
+    .paper-shadow {
+        position: relative;
+    }
+
+    .paper-shadow::after {
+        content: '';
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 100%;
+        height: 100%;
+        background-color: var(--paper-shadow);
+        border-radius: inherit;
+        z-index: -1;
+        transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    /* Hover lift effect (DEPRECATED) */
+    .paper-lift {
+        transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .paper-lift:hover {
+        transform: translate(-2px, -2px);
+    }
+
+    .paper-lift:hover::after {
+        top: 10px;
+        left: 10px;
+    }
+}
+
+/* Progress indeterminate animation */
+@keyframes progress-indeterminate {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(300%);
+    }
+}
+
+/* Spinner animations */
+@keyframes scaleY {
+    0%, 40%, 100% {
+        transform: scaleY(0.4);
+    }
+    20% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes flip {
+    0% {
+        transform: perspective(100px) rotateY(0deg);
+    }
+    50% {
+        transform: perspective(100px) rotateY(180deg);
+    }
+    100% {
+        transform: perspective(100px) rotateY(360deg);
+    }
+}
+
+/* Skeleton shimmer/wave animations (avoid naming conflict with spinner wave) */
+@keyframes skeleton-wave {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        transform: translateX(-150%);
+    }
+    100% {
+        transform: translateX(150%);
+    }
+}
